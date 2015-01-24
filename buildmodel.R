@@ -3,10 +3,12 @@ library(ROCR)
 str(trainData)
 str(train)
 
-
+#Generate model with all predictor variables 
+#Used logistic regression
 happyTestrb = glm(Happy ~ . - UserID, data=trainData, family=binomial)
 summary(happyTestrb)
 
+#Select a subset of predictor variables and verify performance 
 happyTestrb1 = glm(Happy ~
 #Income+
 HouseholdStatus+
@@ -53,7 +55,7 @@ votes
 data=trainData, family=binomial)
 summary(happyTestrb1)
 
-
+#Trial and error - Select a subset of predictor variables and verify performance 
 #This is the best varirable selection so far...
 happyTestrb2 = glm(Happy ~
 #Income+

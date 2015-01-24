@@ -1,10 +1,13 @@
 # Read in data
-trainData = read.csv("train.csv")
+
+#The train.csv data contains  predictors and outcome
+trainData = read.csv("train.csv") 
 trainData2 = trainData 
+#The train.csv contains only outcome
 testData = read.csv("test.csv")
 testData2 = testData 
-#Split into test and train
 
+#Split into test and train
 set.seed(144)
 library(caTools)
 
@@ -16,7 +19,7 @@ train2 = train
 test = subset(trainData, split == FALSE)
 test2 = test
 
-
+#Examine data
 str(test)
 summary(test)
 nrow(test)
@@ -62,7 +65,7 @@ train$HouseholdStatus <- factor(train$HouseholdStatus)
 train$EducationLevel <- factor(train$EducationLevel)
 train$Party <- factor(train$Party)
 
-#remvoes redundant factor
+#removes redundant factor
 for (i in names(train)){
       if (i > 8)
     	{
